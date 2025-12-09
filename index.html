@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>облік товарів у спортивному магазині</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Облік товарів у спортивному магазині</h1>
+
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Введіть назву товару...">
+        <button class="search-btn" onclick="fetchProducts()">Пошук</button>
+    </div>
+    <div id="searchMessage"></div>
+
+    <div class="forms-container">
+        <form id="productForm">
+            <input type="hidden" id="productId">
+            <h3>Додавання/Редагування товару</h3>
+            <label>Назва: <input type="text" id="name" name="name" required></label>
+            <label>Фото: <input type="file" id="image" name="image"></label>
+            <label>Матеріал: <input type="text" id="material" name="material"></label>
+            <label>Розмір: <input type="text" id="size" name="size"></label>
+            <label>Опис: <input type="text" id="description" name="description"></label>
+            <label>Виробник: <input type="text" id="manufacturer" name="manufacturer"></label>
+            <label>Кількість: <input type="number" id="quantity" name="quantity" required></label>
+            <label>Ціна за одиницю: <input type="number" id="price" name="price" required></label>
+            <label>Дата поставки: <input type="date" id="delivery_date" name="delivery_date"></label>
+            <label>Постачальник: <input type="text" id="supplier" name="supplier"></label>
+            <label>Наявність:
+                <select id="availability" name="availability">
+                    <option value="Є в наявності">Є в наявності</option>
+                    <option value="Немає в наявності">Немає в наявності</option>
+                </select>
+            </label>
+            <button type="button" onclick="addProduct()">Додати новий товар</button>
+            <button type="submit">Зберегти</button>
+        </form>
+    
+        <div class="filter-container">
+            <h3>Фільтр товарів</h3>
+            <label>Мін. ціна: <input type="number" id="minPrice"></label>
+            <label>Макс. ціна: <input type="number" id="maxPrice"></label>
+            <label>Виробник:
+                <select id="manufacturerFilter">
+                    <option value="">Всі</option>
+                </select>
+            </label>
+            <label>Наявність:
+                <select id="availabilityFilter">
+                    <option value="">Всі</option>
+                    <option value="Є в наявності">Є в наявності</option>
+                    <option value="Немає в наявності">Немає в наявності</option>
+                </select>
+            </label>
+            <button class="filter-btn" onclick="filterProducts()">Фільтрувати</button>
+            <button class="reset-btn" onclick="resetFilters()">Скинути</button>
+        </div>
+    </div>
+
+    <div class="import-export">
+        <h3>Імпорт / Експорт даних</h3>
+        <button onclick="exportExcel()">Експортувати у Excel</button>
+        <input type="file" accept=".xlsx" onchange="importExcel(event)">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Фото</th>
+                <th>Матеріал</th>
+                <th>Розмір</th>
+                <th>Опис</th>
+                <th>Виробник</th>
+                <th>Кількість</th>
+                <th>Ціна</th>
+                <th>Загальна ціна</th>
+                <th>Дата поставки</th>
+                <th>Постачальник</th>
+                <th>наявність</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody id="productTableBody"></tbody>
+    </table>
+
+    <div class="chart-filters">
+        <label>Початкова дата: <input type="date" id="startDate"></label>
+        <label>Кінцева дата: <input type="date" id="endDate"></label>
+        <button onclick="fetchSupplyData()">Показати графік</button>
+    </div>
+
+    <h2>Графік поставок</h2>
+    <canvas id="supplyChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>

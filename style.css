@@ -1,0 +1,262 @@
+:root{
+    --bg: #f5f5f5;             /* головний фон сторінки (світло-сірий) */
+    --card-bg: #ffffff;        /* фон карток/форм/таблиць */
+    --text: #3a3a3a;           /* основний текст (темно-сірий) */
+    --muted: #6e6e6e;          /* другорядний текст */
+    --primary: #2B5353;        /* акцент: кнопки, заголовки, шапки таблиць */
+    --primary-hover: #1f3c3c;  /* темніший для ховера */
+    --accent: #2B5353;         /* додатковий акцент */
+    --success: #2B5353;        /* фільтр/успіх */
+    --danger: #ef4444;         /* скидання/видалення, помилки */
+    --warning: #f59e0b;        /* редагування */
+    --canvas-bg: #f9fafb;      /* фон canvas */
+    --shadow: rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+
+.import-export h3 {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-top: 20px;
+}
+
+h2 {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-top: 30px;
+}
+
+.forms-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+#productForm {
+    flex: none;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 450px;  
+}
+
+.filter-container {
+    flex: none;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 450px;
+}
+
+#productForm h3, .filter-container h3 {
+    text-align: center;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+}
+
+input, button, select {
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    color: var(--text);
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 15px;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.03);
+    opacity: 0.95;
+    background: var(--primary-hover);
+}
+
+.filter-btn {
+    background-color: var(--success);
+    color: white;
+}
+
+.reset-btn {
+    background-color: var(--primary); /* тепер такий самий як акценти */
+    color: white;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.search-container input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+}
+
+.search-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--shadow);
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    color: var(--text);
+}
+
+th {
+    background: var(--primary);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Кнопки дій */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.edit-btn {
+    background: var(--warning);
+    color: white;
+}
+
+.delete-btn {
+    background: var(--danger);
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #d78f07;
+}
+
+.delete-btn:hover {
+    background: #d43b3b;
+}
+
+.chart-filters {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--muted);
+}
+
+.chart-filters label {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#supplyChart {
+    display: block;
+    margin: 20px auto;
+    max-width: 80%;
+}
+
+canvas {
+    background: var(--canvas-bg);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--shadow);
+    margin-top: 20px;
+    width: 80%;
+    max-width: 1500px;
+}
+
+#searchMessage {
+    color: var(--danger);
+    margin-top: 10px;
+}
+
+#productForm input[type="file"] {
+    width: 260px;
+}
+
+.filter-container label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#productForm input,
+#productForm select,
+.filter-container input,
+.filter-container select {
+    width: 260px;   
+}
